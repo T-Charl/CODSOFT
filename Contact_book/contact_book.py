@@ -35,25 +35,29 @@ def add_contact():
     phone = input('Enter contact phone number: ').strip().title()
     email = input('Enter contact email: ').strip().title()
     address = input('Enter contact address: ').strip().title()
-    with open("Contact_book\contact_book.csv", 'a') as contact_book:
+    with open("/workspaces/CODSOFT/Contact_book/contact_book.csv", 'a') as contact_book:
         writer = csv.writer(contact_book)
         writer.writerow([name, surname, phone, email, address])
 
 # add_contact()
         
 
-def delete_contact(contact_name):
+def delete_contact():
     # contact_name = input().strip().title()
 
-
+    
     delete = pandas.read_csv('/workspaces/CODSOFT/Contact_book/contact_book.csv',  index_col='name')
-    delete = delete.drop(contact_name)
+    for i in delete:
+            if 'False' in i:
+                delete = delete.drop(i[0])
+            else:
+                pass
     # delete = delete.drop(columns=['Unnamed: 0'])
 
 # Save the DataFrame to a CSV file without including the index
     delete.to_csv('/workspaces/CODSOFT/Contact_book/contact_book.csv', index=True)
     # delete.to_csv('Contact_book\contact_book.csv')
-# delete_contact()
+delete_contact()
 
 
 def read_csv():
@@ -69,4 +73,5 @@ def read_csv():
 
 
 if __name__  == "__main__":
-    main()
+    pass
+    # main()
