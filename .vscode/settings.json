@@ -1,6 +1,6 @@
 {
     "python.testing.pytestArgs": [
-        "Rock_paper_scissors"
+        "Password_generator"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true
