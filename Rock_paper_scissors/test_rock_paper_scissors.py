@@ -1,6 +1,5 @@
 import pytest
-
-from rock_paper_scissors import determine_winner
+from rock_paper_scissors import determine_winner, computer_choice
 
 
 def test_user_win_outcomes():
@@ -19,3 +18,9 @@ def test_draw_outcome():
     assert determine_winner("rock", "rock") == "both"
     assert determine_winner("paper", "paper") == "both"
     assert determine_winner("scissors", "scissors") == "both"
+
+
+def test_computer_choice():
+    for i in range(100):
+        choice = computer_choice()
+        assert choice.lower() in ["rock", "paper", "scissors"]

@@ -1,0 +1,7 @@
+{
+    "python.testing.pytestArgs": [
+        "Rock_paper_scissors"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
