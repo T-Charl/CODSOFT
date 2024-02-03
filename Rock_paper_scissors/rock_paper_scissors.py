@@ -11,6 +11,38 @@ far and what the results of those games are.
 """
 
 
+def main():
+    """
+    Entry function that starts the program and executes commands to bring in
+    the defined helper functions and play the game
+    """
+
+    draw, win, lose = 0, 0, 0
+    rules()
+    while True:
+        option = input("Enter Game option: ").strip().lower()
+        if option in ["exit", "done", "quit"]:
+            sys.exit("Thank you for playing.\nLet's play again soon.\n")
+        elif option == "tally":
+            tally(draw, win, lose)
+        elif option == "rules":
+            rules()
+        elif option == "1":
+            best_of_n(draw, win, lose, 1)
+        elif option == "2":
+            best_of_n(draw, win, lose, 3)
+        elif option == "3":
+            my_choice(draw, win, lose)
+        elif option == "4":
+            print("Let's play to your heart's content\n")
+            while True:
+                draw, win, lose = game(draw, win, lose)
+        print(
+            """Please enter a game option.
+Alternatively type 'Rules' to view options. \n"""
+        )
+    
+
 def computer_choice() -> str:
     """
     Function that uses the random module to select a choice for the computer'
@@ -101,15 +133,15 @@ def results(result: str, user: str, computer: str):
 
     if result == "both":
         print(
-            f"DRAW!!!\nYour choice: {user.upper()}\nComputer choice {computer.upper()}\n"
+            f"DRAW!!!\nYour choice: {user.upper()}\nComputer choice: {computer.upper()}\n"
         )
     elif result == "user":
         print(
-            f"You WIN!!!\nYour choice: {user.upper()}\nComputer choice {computer.upper()}\n"
+            f"You WIN!!!\nYour choice: {user.upper()}\nComputer choice: {computer.upper()}\n"
         )
     else:
         print(
-            f"You LOSE!!!\nYour choice: {user.upper()}\nComputer choice {computer.upper()}\n"
+            f"You LOSE!!!\nYour choice: {user.upper()}\nComputer choice: {computer.upper()}\n"
         )
 
 
@@ -168,7 +200,7 @@ def rules():
     """
     Function that prints the game options and rules
     """
-
+    print("\nWelcome to Rock, Paper, Scissors\n")
     print(
         """
 The Rules are simply as follows:
@@ -238,36 +270,6 @@ def my_choice(draw, win, lose):
     best_of_n(draw, win, lose, n)
 
 
-def main():
-    """
-    Entry function that starts the program and executes commands to bring in
-    the defined helper functions and play the game
-    """
-
-    draw, win, lose = 0, 0, 0
-    rules()
-    while True:
-        option = input("Enter Game option: ").strip().lower()
-        if option in ["exit", "done", "quit"]:
-            sys.exit("Thank you for playing.\nLet's play again soon.\n")
-        elif option == "tally":
-            tally(draw, win, lose)
-        elif option == "rules":
-            rules()
-        elif option == "1":
-            best_of_n(draw, win, lose, 1)
-        elif option == "2":
-            best_of_n(draw, win, lose, 3)
-        elif option == "3":
-            my_choice(draw, win, lose)
-        elif option == "4":
-            print("Let's play to your heart's content\n")
-            while True:
-                draw, win, lose = game(draw, win, lose)
-        print(
-            """Please enter a game option.
-Alternatively type 'Rules' to view options. \n"""
-        )
 
 
 if __name__ == "__main__":
