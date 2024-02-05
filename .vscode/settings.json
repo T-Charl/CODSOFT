@@ -1,6 +1,6 @@
 {
     "python.testing.pytestArgs": [
-        "Password_generator"
+        "Calculator"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true
