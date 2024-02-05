@@ -5,7 +5,6 @@ import builtins
 import password_generator as pg
 
 
-
 class Test_password_generator:
     def test_password_length(self):
         with mock.patch.object(builtins, 'input', lambda _: '15'):
