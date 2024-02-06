@@ -65,7 +65,7 @@ def get_password_length() -> int:
             n = input("Please provide a digit for password length. ")
 
 
-def generate_password(length:int, complexity:str) -> str:
+def generate_password(length: int, complexity: str) -> str:
     """
     Function that assembles password by getting 1 random character at a time
     from the get_character function.
@@ -84,7 +84,7 @@ def generate_password(length:int, complexity:str) -> str:
     return password
 
 
-def get_character(complexity:str) -> str:
+def get_character(complexity: str) -> str:
     """
     Function that randomly chooses one character and returns it. Character
     option availabilty differ based on complexity
