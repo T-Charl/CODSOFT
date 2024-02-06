@@ -1,7 +1,7 @@
 import csv
 import sys
 import pandas
-
+from  prettytable import PrettyTable
 
 
 def main():
@@ -14,10 +14,17 @@ Would you like to create your personal contact book? Y/n? """)
         elif user.lower() == 'y':
             print("Let's get started")
             add_contact()
+            if not to_continue():
+                break
         else:
             user = input('Would you like to create your personal contact book? Y/n?')
 
 
+def to_continue():
+    user = input('Would you like to add another? Y/n').strip().lower()
+    if user == 'y':
+        return True
+    return False
 
 
 def create_contact_book():
@@ -57,21 +64,24 @@ def delete_contact():
 # Save the DataFrame to a CSV file without including the index
     delete.to_csv('/workspaces/CODSOFT/Contact_book/contact_book.csv', index=True)
     # delete.to_csv('Contact_book\contact_book.csv')
-delete_contact()
+# delete_contact()
 
 
-def read_csv():
-    with open('/workspaces/CODSOFT/Contact_book/contact_book.csv', 'r') as book:
-        red = csv.reader(book)
-        for i in red:
-            if 'False' in i:
-                delete_contact(i[0])
-            else:
-                print(i)
+def view_contacts():
 
-# read_csv()
+    newTable = PrettyTable(['Name','Surname','Phone number','Email','Address'])
+    with open("/workspaces/CODSOFT/Contact_book/contact_book.csv", 'r') as contact_book:
+        reader = csv.DictReader(contact_book)
+        for i in reader:
+            name = i.get('name')
+            surname = i.get('surname')
+            phone_number = i.get('phone_number')
+            email = i.get('email')
+            address = i.get('address')
+            newTable.add_row([name, surname, phone_number, email, address])
+    print(newTable)
+# view_contacts()
 
 
 if __name__  == "__main__":
-    pass
-    # main()
+    main()
