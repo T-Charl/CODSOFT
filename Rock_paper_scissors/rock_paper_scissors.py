@@ -41,7 +41,7 @@ def main():
             """Please enter a game option.
 Alternatively type 'Rules' to view options. \n"""
         )
-    
+
 
 def computer_choice() -> str:
     """
@@ -55,8 +55,8 @@ def computer_choice() -> str:
 
 
 def get_user_choice(draw: int, win: int, lose: int) -> str:
-    """Function that gets for user choice of rock, paper, or scissors and 
-    validates it. r, p and s are supported in lieu or the full words. If choice 
+    """Function that gets for user choice of rock, paper, or scissors and
+    validates it. r, p and s are supported in lieu or the full words. If choice
     is not valid user is re-prompted for choice. Function supports tally functions
     and will exit the program if user inputs any of the exit commands.
 
@@ -268,8 +268,6 @@ def my_choice(draw, win, lose):
                     "Enter a valid number. \nHow many rounds would you like to play? "
                 ).strip()
     best_of_n(draw, win, lose, n)
-
-
 
 
 if __name__ == "__main__":
